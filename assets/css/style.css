@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+/* Font chosen to fit the child friendly theme */
+
+/* Adjustment of the main content */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+:root {
+    --white: #ffffff;
+    --violet: #673ab7; 
+
+}
+/* Style for the html */
+html {
+    font-family: 'Play', sans-serif;
+    font-size: 62.5%;
+    font-weight: 400;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none; 
+}
+/* Targeting the h1 element */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    color: var(--violet);
+    padding: 2rem 0;
+}
