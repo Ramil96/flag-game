@@ -38,7 +38,7 @@ h1 {
     color: var(--violet);
     padding: 2rem 0;
 }
-
+/* H3 Styling added */
 h3 {
     font-size: 2rem;
     padding: 2rem 0;
@@ -46,4 +46,37 @@ h3 {
     color: var(--violet);
     padding: 2rem;
 
+}
+/* Container being targeted */
+.container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media(min-width: 576){
+    .container {
+        width: 540px;
+    }
+}
+@media(min-width: 768){
+    .container {
+        width: 720px;
+    }
+}
+@media(min-width: 992px){
+    .container {
+        width: 960px;
+    }
+}
+@media(min-width: 1200px){
+    .container {
+        width: 1140px;
+    }
+}
+@media(min-width: 1400px){
+    .container {
+        width: 1320px;
+    }
 }
