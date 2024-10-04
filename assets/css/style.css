@@ -80,3 +80,18 @@ h3 {
         width: 1320px;
     }
 }
+/* Box content section targeted */
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.box .count {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--violet);
+    text-transform: capitalize;
+    padding: 2rem;
+}
