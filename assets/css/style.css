@@ -38,3 +38,12 @@ h1 {
     color: var(--violet);
     padding: 2rem 0;
 }
+
+h3 {
+    font-size: 2rem;
+    padding: 2rem 0;
+    text-transform: capitalize;
+    color: var(--violet);
+    padding: 2rem;
+
+}
