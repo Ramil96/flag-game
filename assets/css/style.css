@@ -115,7 +115,7 @@ h3 {
     height: 20rem;
     animation: zoom-in-zoom-out 3s ease-in infinite;
 }
-
+/* Keyframes added for animation */
 @keyframes zoom-in-zoom-out {
     0%{
         transform: scale(1, 1);
@@ -129,7 +129,7 @@ h3 {
         transform: scale(1, 1);
     }
 }
-
+/* Flag styling for selections */
 .flags .flag-options ul {
     display: flex;
     align-items: center;
@@ -139,5 +139,14 @@ h3 {
 
 .flags .flag-options ul li {
     font-size: 2.5rem;
-    tex
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: .5rem;
+    width: 240px;
+    color: var(--violet);
+    cursor: pointer;
+    box-shadow: 0 .5rem .5rem .5rem rgba(0 0 0 / .3);
+    transition: all .1s ease-in-out;
 }
