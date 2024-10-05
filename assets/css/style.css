@@ -95,3 +95,11 @@ h3 {
     text-transform: capitalize;
     padding: 2rem;
 }
+
+/* Target flag style */
+.flags {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
