@@ -164,7 +164,7 @@ h3 {
 }
 
 .score {
-    display: block;
+    display: none;
     padding: 2rem;
     border-radius: .5rem;
 }
@@ -172,4 +172,17 @@ h3 {
 .score .correct,
 .score .incorrect{
     color: var(--violet);
+}
+
+.flags .flag-options ul li.active {
+    background-color: var(--violet);
+    color: var(--white);
+}
+
+.flags .flag-options ul li.success {
+    background-color: #1eb53a;
+}
+
+.flags .flag-options ul li.wrong {
+    background-color: red;
 }
