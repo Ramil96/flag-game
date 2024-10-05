@@ -151,6 +151,7 @@ h3 {
     transition: all .1s ease-in-out;
 }
 
+/* New game button styled */
 #newGame {
     border: none;
     background-color: var(--violet);
@@ -160,4 +161,15 @@ h3 {
     font-size: 1.8rem;
     font-weight: bold;
     letter-spacing: .1rem;
+}
+
+.score {
+    display: block;
+    padding: 2rem;
+    border-radius: .5rem;
+}
+
+.score .correct,
+.score .incorrect{
+    color: var(--violet);
 }
