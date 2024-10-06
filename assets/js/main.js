@@ -1,5 +1,12 @@
 // select elements
 let countSpan = document.querySelector('.count span')
+let flagImgDiv = document.querySelector('.flag-img')
+let flagImg = document.querySelector('.flag-img img')
+let flagOptions = document.querySelector('.flag-options ul');
+let flagLis = document.querySelectorAll('.flag-options ul li');
+
+let currentIndex = 0;
+
 function getQuestions(){
     let myRequest = new XMLHttpRequest()
     myRequest.onreadystatechange = function (){
@@ -19,4 +26,17 @@ getQuestions();
 
 function questionNum(num) {
     countSpan.innerHTML = num;
+}
+
+function addQuestionData(obj, count) {
+    if(currentIndex < count) {
+        flagImg.src = `assets/images/${obj.img}`;
+        //Create Options
+        flagLis.forEach((li, i) => {
+            //Give each Li a dynamic Id
+            li.id = `answer_${i+1}`;
+            //Create for each Li a dynamic data-attribute
+            li.dataset.answer=obj[`options`][i];
+        })
+    }
 }
