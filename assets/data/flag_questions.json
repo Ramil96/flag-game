@@ -1,6 +1,6 @@
 [
     {
-        "img": "UK",
+        "img": "UK.png",
         "options": [
             "France", 
             "United Kingdom", 
@@ -9,7 +9,7 @@
         "right_answer": "United Kingdom"
     },
     {
-        "img": "Germany",
+        "img": "Germany.png",
         "options": [
             "United States", 
             "Germany", 
