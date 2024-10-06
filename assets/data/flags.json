@@ -1,0 +1,92 @@
+[
+    {
+        "img": "UK",
+        "options": [
+            "France", 
+            "United Kingdom", 
+            "Spain"
+        ],
+        "right_answer": "United Kingdom"
+    },
+    {
+        "img": "Germany",
+        "options": [
+            "United States", 
+            "Germany", 
+            "Greece"
+        ],
+        "right_answer": "Germany"
+    },
+    {
+        "img": "Italy",
+        "options": [
+            "South Africa", 
+            "Algeria", 
+            "Italy"
+        ],
+        "right_answer": "Italy"
+    },
+    {
+        "img": "France",
+        "options": [
+            "Sweden", 
+            "France", 
+            "Albania"
+        ],
+        "right_answer": "France"
+    },
+    {
+        "img": "Spain",
+        "options": [
+            "Spain", 
+            "Belgium", 
+            "Ireland"
+        ],
+        "right_answer": "Spain"
+    },
+    {
+        "img": "Russia",
+        "options": [
+            "Hungary", 
+            "Romania", 
+            "Russia"
+        ],
+        "right_answer": "Russia"
+    },
+    {
+        "img": "Portugal",
+        "options": [
+            "Portugal", 
+            "Argentina", 
+            "Scotland"
+        ],
+        "right_answer": "Portugal"
+    },
+    {
+        "img": "China",
+        "options": [
+            "Albania", 
+            "China", 
+            "Egypt"
+        ],
+        "right_answer": "China"
+    },
+    {
+        "img": "India",
+        "options": [
+            "Netherlands", 
+            "Argentina", 
+            "India"
+        ],
+        "right_answer": "India"
+    },
+    {
+        "img": "United States",
+        "options": [
+            "Slovakia", 
+            "Poland", 
+            "United States"
+        ],
+        "right_answer": "United States"
+    }
+]
