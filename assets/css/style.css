@@ -209,10 +209,10 @@ h3 {
         font-size: 6rem;
     }
 }
-
+/* Animation to flag options */
 @media (min-width: 991px) {
     .flags .flag-options ul li:hover {
-        border-color: var(--violet);
+        background-color: var(--violet);
         color: var(--white);
     }
 }
