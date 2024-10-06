@@ -2,6 +2,7 @@
 /* Font chosen to fit the child friendly theme */
 
 /* Adjustment of the main content */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,13 +15,23 @@
     --violet: #673ab7; 
 
 }
+
 /* Style for the html */
+
 html {
     font-family: 'Play', sans-serif;
     font-size: 62.5%;
     font-weight: 400;
     line-height: 1.6;
     scroll-behavior: smooth;
+}
+
+body {
+    background: url(/assets/images/brightbeach.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
 }
 
 ul {
@@ -30,24 +41,42 @@ ul {
 a {
     text-decoration: none; 
 }
+
 /* Targeting the h1 element */
+
+.title-container {
+    text-align: center; /* Center the contents of the container */
+}
+
 h1 {
+    font-family: 'Afacad Flux';
     text-align: center;
     font-size: 2.5rem;
     text-transform: capitalize;
     color: var(--violet);
     padding: 2rem 0;
+    background: white;
+    border-radius: 5rem; /* Rounded edges */
+    display: inline-block; /* Makes the background fit just around the text */
+    padding: 2rem;
+    text-align: center;
 }
+
 /* H3 Styling added */
+
 h3 {
+    font-family: 'Afacad Flux';
     font-size: 2rem;
     padding: 2rem 0;
     text-transform: capitalize;
     color: var(--violet);
     padding: 2rem;
-
+    background: white;
+    border-radius: 5rem;
 }
+
 /* Container being targeted */
+
 .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -80,7 +109,9 @@ h3 {
         width: 1320px;
     }
 }
+
 /* Section for box content */
+
 .box {
     display: flex;
     align-items: center;
@@ -89,14 +120,20 @@ h3 {
 }
 
 .box .count {
+    font-family: 'Afacad Flux';
     font-size: 2rem;
     font-weight: 700;
     color: var(--violet);
     text-transform: capitalize;
     padding: 2rem;
+    background: white;
+    border-radius: 5rem; /* Rounded edges */
+    display: inline-block; /* Makes the background fit just around the text */
+    margin: 0; /* Remove margin to avoid extra spacing */
 }
 
 /* Section for flag styling */
+
 .flags {
     display: flex;
     align-items: center;
@@ -115,7 +152,9 @@ h3 {
     height: 20rem;
     animation: zoom-in-zoom-out 3s ease-in infinite;
 }
+
 /* Keyframes added for animation */
+
 @keyframes zoom-in-zoom-out {
     0%{
         transform: scale(1, 1);
@@ -130,11 +169,12 @@ h3 {
     }
 }
 
+/* Flag styling for selections */
+
 .flags .flag-options {
     margin-top: 2rem;
 }
 
-/* Flag styling for selections */
 .flags .flag-options ul {
     display: flex;
     align-items: center;
@@ -157,6 +197,7 @@ h3 {
 }
 
 /* New game button styled */
+
 #newGame {
     border: none;
     background-color: var(--violet);
@@ -180,6 +221,7 @@ h3 {
 }
 
 /* Flags option style */
+
 .flags .flag-options ul li.active {
     background-color: var(--violet);
     color: var(--white);
@@ -215,6 +257,7 @@ h3 {
     }
 }
 /* Animation to flag options */
+
 @media (min-width: 991px) {
     .flags .flag-options ul li:hover {
         background-color: var(--violet);
