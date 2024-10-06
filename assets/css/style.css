@@ -129,6 +129,11 @@ h3 {
         transform: scale(1, 1);
     }
 }
+
+.flags .flag-options {
+    margin-top: 2rem;
+}
+
 /* Flag styling for selections */
 .flags .flag-options ul {
     display: flex;
