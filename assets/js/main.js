@@ -1,4 +1,4 @@
-// select elements
+// Select elements
 let countSpan = document.querySelector('.count span');
 let flagImgDiv = document.querySelector('.flag-img');
 let flagImg = document.querySelector('.flag-img img');
@@ -6,12 +6,13 @@ let flagOptions = document.querySelector('.flag-options ul');
 let flagLis = document.querySelectorAll('.flag-options ul li');
 let score = document.querySelector('h3 span');
 let scoreDiv = document.querySelector('.score');
-let correctAns = document.querySelector('.score .right span');
-let incorrectAns = document.querySelector('.score .wrong span');
+let correctAns = document.querySelector('.score .Right span'); // Adjusted to target correctly
+let incorrectAns = document.querySelector('.score .incorrect span'); // Adjusted to target correctly
 let btnNewGame = document.querySelector('#newGame');
 
 let currentIndex = 0;
 let rightAnswer = 0;
+let wrongAnswer = 0; // Added a variable to track incorrect answers
 
 function getQuestions() {
     let myRequest = new XMLHttpRequest();
@@ -19,7 +20,7 @@ function getQuestions() {
         if (this.readyState === 4 && this.status === 200) {
             let questions = JSON.parse(this.responseText);
             console.log(questions);
-            // number of questions each new game
+            // Number of questions each new game
             let qCount = 10;
             questionNum(qCount);
             // Add questions data
@@ -28,7 +29,7 @@ function getQuestions() {
             // Add click event to each option
             flagLis.forEach((li) => {
                 li.addEventListener('click', () => {
-                    let rightAnswer = questions[currentIndex].right_answer;
+                    let correctAnswer = questions[currentIndex].right_answer; // Correct answer for the current question
                     // Remove 'active' class from all options
                     flagLis.forEach((item) => item.classList.remove('active'));
                     li.classList.add('active');
@@ -38,20 +39,25 @@ function getQuestions() {
 
                     // Check the answer after 500ms
                     setTimeout(() => {
-                        checkAnswer(rightAnswer, qCount);
+                        checkAnswer(correctAnswer, li); // Passing the clicked option
                     }, 500);
 
                     setTimeout(() => {
-                        //Remove previous image source
+                        // Remove previous image source
                         flagImg.src = '';
-                        //Remove all classes (active, success, wrong)
+                        // Remove all classes (active, success, wrong)
                         li.classList.remove('active');
                         li.classList.remove('success');
                         li.classList.remove('wrong');
 
-                        //Add question data
-                        addQuestionData(questions[currentIndex], qCount);
-                    }, 1000)
+                        // Add next question data
+                        if (currentIndex < qCount) {
+                            addQuestionData(questions[currentIndex], qCount);
+                        } else {
+                            // Show results after the last question
+                            showResults(qCount);
+                        }
+                    }, 1000);
                 });
             });
         }
@@ -62,10 +68,12 @@ function getQuestions() {
 
 getQuestions();
 
+// Function to display the total number of questions
 function questionNum(num) {
     countSpan.innerHTML = num;
 }
 
+// Function to add question data
 function addQuestionData(obj, count) {
     if (currentIndex < count) {
         flagImg.src = `assets/images/${obj.img}`;
@@ -83,29 +91,33 @@ function addQuestionData(obj, count) {
     }
 }
 
-function checkAnswer(rAnswer, count) {
-    let chosenAnswer;
-    flagLis.forEach((li) => {
-        if (li.classList.contains('active')) {
-            chosenAnswer = li.dataset.answer;
-            if (rAnswer === chosenAnswer) {
-                li.classList.add('success'); // Correct answer
-                rightAnswer++;
-                score.innerHTML = rightAnswer; // Update score
-            } else {
-                li.classList.add('wrong'); // Wrong answer
-            }
-        }
-    });
-}
-
-//Function to show result correct and wrong answer
-function showResults(count) {
-    if(currentIndex === count) {
-        flagOptions.innerHTML = '';
-        flagImgDiv.innerHTML ='';
-        scoreDiv.style.display = 'block';
-        correctAns.innerHTML = rightAnswer;
-        incorrectAns.innerHTML = count - rightAnswer;
+// Function to check if the chosen answer is correct or not
+function checkAnswer(correctAnswer, selectedLi) {
+    let chosenAnswer = selectedLi.dataset.answer;
+    if (correctAnswer === chosenAnswer) {
+        selectedLi.classList.add('success'); // Correct answer
+        rightAnswer++; // Increment right answers count
+        score.innerHTML = rightAnswer; // Update score display
+    } else {
+        selectedLi.classList.add('wrong'); // Incorrect answer
+        wrongAnswer++; // Increment wrong answers count
     }
 }
+
+// Function to show the results (correct and incorrect answers)
+function showResults(totalQuestions) {
+    // Hide the flag image and options
+    flagOptions.innerHTML = '';
+    flagImgDiv.innerHTML = '';
+
+    // Display the score result section
+    scoreDiv.style.display = 'block'; // Show the score div
+    correctAns.innerHTML = rightAnswer; // Display the correct answers count
+    incorrectAns.innerHTML = wrongAnswer; // Display the incorrect answers count
+}
+
+// New game logic (optional for reset)
+btnNewGame.addEventListener('click', () => {
+    // Reload the page to start a new game (you can add a better reset logic)
+    window.location.reload();
+});
