@@ -14,6 +14,15 @@ let currentIndex = 0;
 let rightAnswer = 0;
 let wrongAnswer = 0; // Added a variable to track incorrect answers
 
+// Utility function to shuffle an array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 function getQuestions() {
     let myRequest = new XMLHttpRequest();
     myRequest.onreadystatechange = function () {
@@ -23,7 +32,7 @@ function getQuestions() {
             // Number of questions each new game
             let qCount = 10;
             questionNum(qCount);
-            //Random question each new game
+            // Random question each new game
             questions = questions.sort(() => Math.random() - Math.random()).slice(0, 10);
             // Add questions data
             addQuestionData(questions[currentIndex], qCount);
@@ -79,14 +88,19 @@ function questionNum(num) {
 function addQuestionData(obj, count) {
     if (currentIndex < count) {
         flagImg.src = `assets/images/${obj.img}`;
+
+        // Clone and shuffle options array
+        let options = shuffleArray([...obj.options]);
+
         // Create Options
         flagLis.forEach((li, i) => {
             // Give each li a dynamic ID
             li.id = `answer_${i + 1}`;
-            // Create for each li a dynamic data-attribute
-            li.dataset.answer = obj.options[i];
-            // Inserting option in the li
-            li.innerHTML = obj.options[i];
+
+            // Assign the shuffled options to the li elements
+            li.dataset.answer = options[i]; // Dynamic assignment of shuffled option to each li
+            li.innerHTML = options[i];      // Display the shuffled option
+
             // Clear previous classes
             li.classList.remove('active', 'success', 'wrong');
         });
