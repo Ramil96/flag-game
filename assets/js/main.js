@@ -40,6 +40,12 @@ function getQuestions() {
                     setTimeout(() => {
                         checkAnswer(rightAnswer, qCount);
                     }, 500);
+
+                    setTimeout(() => {
+                        //Remove previous image source
+                        flagImg.src = '';
+                        //Remove all classes
+                    })
                 });
             });
         }
