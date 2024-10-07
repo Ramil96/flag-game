@@ -23,6 +23,8 @@ function getQuestions() {
             // Number of questions each new game
             let qCount = 10;
             questionNum(qCount);
+            //Random question each new game
+            questions = questions.sort(() => Math.random() - Math.random()).slice(0, 10);
             // Add questions data
             addQuestionData(questions[currentIndex], qCount);
 
