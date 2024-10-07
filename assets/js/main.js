@@ -100,4 +100,12 @@ function checkAnswer(rAnswer, count) {
 }
 
 //Function to show result correct and wrong answer
-
+function showResults(count) {
+    if(currentIndex === count) {
+        flagOptions.innerHTML = '';
+        flagImgDiv.innerHTML ='';
+        scoreDiv.style.display = 'block';
+        correctAns.innerHTML = rightAnswer;
+        incorrectAns.innerHTML = count - rightAnswer;
+    }
+}
