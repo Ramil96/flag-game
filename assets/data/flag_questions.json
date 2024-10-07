@@ -18,7 +18,7 @@
         "right_answer": "Germany"
     },
     {
-        "img": "Italy",
+        "img": "Italy.png",
         "options": [
             "South Africa", 
             "Algeria", 
@@ -27,7 +27,7 @@
         "right_answer": "Italy"
     },
     {
-        "img": "France",
+        "img": "France.png",
         "options": [
             "Sweden", 
             "France", 
@@ -36,7 +36,7 @@
         "right_answer": "France"
     },
     {
-        "img": "Spain",
+        "img": "Spain.png",
         "options": [
             "Spain", 
             "Belgium", 
@@ -45,7 +45,7 @@
         "right_answer": "Spain"
     },
     {
-        "img": "Russia",
+        "img": "Russia.png",
         "options": [
             "Hungary", 
             "Romania", 
@@ -54,7 +54,7 @@
         "right_answer": "Russia"
     },
     {
-        "img": "Portugal",
+        "img": "Portugal.png",
         "options": [
             "Portugal", 
             "Argentina", 
@@ -63,7 +63,7 @@
         "right_answer": "Portugal"
     },
     {
-        "img": "China",
+        "img": "China.png",
         "options": [
             "Albania", 
             "China", 
@@ -72,7 +72,7 @@
         "right_answer": "China"
     },
     {
-        "img": "India",
+        "img": "India.png",
         "options": [
             "Netherlands", 
             "Argentina", 
@@ -81,7 +81,7 @@
         "right_answer": "India"
     },
     {
-        "img": "United States",
+        "img": "US.png",
         "options": [
             "Slovakia", 
             "Poland", 

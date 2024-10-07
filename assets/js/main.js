@@ -44,8 +44,14 @@ function getQuestions() {
                     setTimeout(() => {
                         //Remove previous image source
                         flagImg.src = '';
-                        //Remove all classes
-                    })
+                        //Remove all classes (active, success, wrong)
+                        li.classList.remove('active');
+                        li.classList.remove('success');
+                        li.classList.remove('wrong');
+
+                        //Add question data
+                        addQuestionData(questions[currentIndex], qCount);
+                    }, 1000)
                 });
             });
         }
@@ -92,3 +98,6 @@ function checkAnswer(rAnswer, count) {
         }
     });
 }
+
+//Function to show result correct and wrong answer
+
