@@ -73,7 +73,7 @@ function getQuestions() {
             });
         }
     };
-    myRequest.open('GET', 'assets/data/flag_questions.json', true);
+    myRequest.open('GET', 'assets/data/easy_flag_questions.json', true);
     myRequest.send();
 }
 
