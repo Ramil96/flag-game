@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
 /* Font chosen to fit the child friendly theme */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&display=swap');
+/* New font chosen to fit islander and child friendly theme */
 
 /* Adjustment of the main content */
 
@@ -19,7 +21,7 @@
 /* Style for the html */
 
 html {
-    font-family: 'Play', sans-serif;
+    font-family: "Baloo Paaji 2",'Play', sans-serif;
     font-size: 62.5%;
     font-weight: 400;
     line-height: 1.6;
