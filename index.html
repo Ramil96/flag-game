@@ -3,42 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Flags are fun</title>
+    <title>Flag Quiz Game - Select Difficulty</title>
+    <link rel="stylesheet" href="pregame.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-<!--Main area where the interface is structured containing the main section the user engages with-->
-<main>
     <div class="container">
-        <div class="title-container">
-        <h1>Flags are fun</h1>
+        <h1>Welcome to the Flag Quiz Game!</h1>
+        <div class="instructions">
+            <h2>Instructions:</h2>
+            <p>Test your knowledge of world flags! You will see a flag and have to choose the correct country name from the options provided. There are different difficulty levels: Easy and Hard. Good luck!</p>
         </div>
-        <div class="box">
-            <h3>Score: <span></span></h3>
-            <div class="count">question: <span></span></div>
-        </div>
-        <div class="flags">
-            <div class="flag-img">
-                <img src="">
-            </div>
-<!--Selection of different answers in list format-->
-            <div class="flag-options">
-                <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
-<!--The section where score is kept on the interface-->
-            <div class="score">
-                <h3 class="Right">Your Right Answer: <span></span></h3>
-                <h3 class="incorrect">Your Wrong Answer: <span></span></h3>
-                <button id="newGame">New Game</button>
-            </div>
+        <div class="difficulty">
+            <h2>Select Difficulty Level:</h2>
+            <button class="difficulty-button" data-difficulty="easy">Easy</button>
+            <button class="difficulty-button" data-difficulty="hard">Hard</button>
         </div>
     </div>
-</main>   
-<script src="assets/js/main.js"></script>
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
 </body>
-
 </html>
