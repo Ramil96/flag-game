@@ -30,10 +30,10 @@ function getQuestions() {
             let questions = JSON.parse(this.responseText);
             console.log(questions);
             // Number of questions each new game
-            let qCount = 10;
+            let qCount = 15;
             questionNum(qCount);
             // Random question each new game
-            questions = questions.sort(() => Math.random() - Math.random()).slice(0, 10);
+            questions = questions.sort(() => Math.random() - Math.random()).slice(0, 15);
             // Add questions data
             addQuestionData(questions[currentIndex], qCount);
 

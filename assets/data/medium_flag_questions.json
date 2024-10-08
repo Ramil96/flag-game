@@ -81,56 +81,56 @@
         "right_answer": "Egypt"
     },
     {
-        "img": "US.png",
+        "img": "Denmark.png",
         "options": [
-            "Slovakia", 
+            "Denmark", 
+            "Ghana", 
+            "San Marino"
+        ],
+        "right_answer": "Denmark"
+    },
+    {
+        "img": "Romania.png",
+        "options": [
+            "Mongolia", 
+            "Romania", 
+            "Paraguay"
+        ],
+        "right_answer": "Romania"
+    },
+    {
+        "img": "Ukraine.png",
+        "options": [
+            "Senegal", 
+            "Serbia", 
+            "Ukraine"
+        ],
+        "right_answer": "Ukraine"
+    },
+    {
+        "img": "Iceland.png",
+        "options": [
+            "Iceland", 
             "Poland", 
-            "United States"
+            "Kyrgyzstan"
         ],
-        "right_answer": "United States"
+        "right_answer": "Iceland"
     },
     {
-        "img": "Egypt.png",
+        "img": "Georgia.png",
         "options": [
-            "Qatar", 
-            "Yemen", 
-            "Egypt"
+            "Isle of Man", 
+            "Georgia", 
+            "England"
         ],
-        "right_answer": "Egypt"
+        "right_answer": "Georgia"
     },
     {
-        "img": "Egypt.png",
+        "img": "Belgium.png",
         "options": [
-            "Qatar", 
-            "Yemen", 
-            "Egypt"
-        ],
-        "right_answer": "Egypt"
-    },
-    {
-        "img": "Egypt.png",
-        "options": [
-            "Qatar", 
-            "Yemen", 
-            "Egypt"
-        ],
-        "right_answer": "Egypt"
-    },
-    {
-        "img": "Egypt.png",
-        "options": [
-            "Qatar", 
-            "Yemen", 
-            "Egypt"
-        ],
-        "right_answer": "Egypt"
-    },
-    {
-        "img": "Egypt.png",
-        "options": [
-            "Qatar", 
-            "Yemen", 
-            "Egypt"
+            "Luxembourg", 
+            "Germany", 
+            "Belgium"
         ],
         "right_answer": "Egypt"
     }
