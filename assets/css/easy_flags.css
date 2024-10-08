@@ -278,3 +278,18 @@ h3 {
         color: var(--white);
     }
 }
+
+/* Style for the home icon */
+.home-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem; /* Adjust size as needed */
+    color: var(--violet);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.home-icon:hover {
+    color: #1eb53a; /* Change color on hover */
+}
