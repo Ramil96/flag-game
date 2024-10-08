@@ -6,6 +6,15 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    color: #673ab7;
+}
+
+body {
+    background: url(/assets/images/brightbeach.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    position: relative;
 }
 
 .container {
@@ -29,11 +38,11 @@ body {
     margin: 5px;
     border: none;
     border-radius: 5px;
-    background-color: #007bff;
+    background-color: #673ab7; ;
     color: white;
     cursor: pointer;
 }
 
 .difficulty-button:hover {
-    background-color: #0056b3;
+    background-color: #673ab7;
 }
