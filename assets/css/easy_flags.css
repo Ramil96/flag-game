@@ -284,12 +284,12 @@ h3 {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 3rem; /* Adjust size as needed */
-    color: var(--violet);
+    font-size: 3rem;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .home-icon:hover {
-    color: #1eb53a; /* Change color on hover */
+    color: #673ab7;
 }
