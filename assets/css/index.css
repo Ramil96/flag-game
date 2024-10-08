@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+/* Font chosen to fit the child friendly theme */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&display=swap');
+/* New font chosen to fit islander and child friendly theme */
+
 body {
     font-family: 'Baloo Paaji 2', Arial, sans-serif;
     display: flex;
@@ -7,6 +12,11 @@ body {
     margin: 0;
     background-color: #f0f0f0;
     color: #673ab7;
+}
+
+html {
+    font-family: "Baloo Paaji 2",'Play', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
