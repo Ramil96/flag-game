@@ -20,7 +20,7 @@ html {
 }
 
 body {
-    background: url(/assets/images/brightbeach.jpg) no-repeat;
+    background: url(/assets/images/indexbackground.jpg) no-repeat;
     background-size: cover;
     background-position: center;
     min-height: 100vh;
