@@ -87,7 +87,7 @@ function questionNum(num) {
 // Function to add question data
 function addQuestionData(obj, count) {
     if (currentIndex < count) {
-        flagImg.src = `assets/images/${obj.img}`;
+        flagImg.src = `assets/images/medium/${obj.img}`;
 
         // Clone and shuffle options array
         let options = shuffleArray([...obj.options]);

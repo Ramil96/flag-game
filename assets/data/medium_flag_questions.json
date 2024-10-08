@@ -18,67 +18,67 @@
         "right_answer": "Brazil"
     },
     {
-        "img": "Italy.png",
+        "img": "SA.png",
         "options": [
             "South Africa", 
             "Algeria", 
             "Italy"
         ],
-        "right_answer": "Italy"
+        "right_answer": "South Africa"
     },
     {
-        "img": "France.png",
+        "img": "Greece.png",
         "options": [
             "Sweden", 
-            "France", 
-            "Albania"
+            "Scotland", 
+            "Greece"
         ],
-        "right_answer": "France"
+        "right_answer": "Greece"
     },
     {
-        "img": "Spain.png",
+        "img": "Turkey.png",
         "options": [
-            "Spain", 
-            "Belgium", 
-            "Ireland"
+            "Turkey", 
+            "Guyana", 
+            "Costa Rica"
         ],
-        "right_answer": "Spain"
+        "right_answer": "Turkey.png"
     },
     {
-        "img": "Russia.png",
+        "img": "Thailand.png",
         "options": [
-            "Hungary", 
-            "Romania", 
-            "Russia"
+            "Peru", 
+            "Thailand", 
+            "Myanmar"
         ],
-        "right_answer": "Russia"
+        "right_answer": "Thailand"
     },
     {
-        "img": "Portugal.png",
+        "img": "Chile.png",
         "options": [
-            "Portugal", 
-            "Argentina", 
-            "Scotland"
+            "Slovakia", 
+            "Czechia", 
+            "Chile"
         ],
-        "right_answer": "Portugal"
+        "right_answer": "Chile"
     },
     {
-        "img": "China.png",
+        "img": "Vietnam.png",
         "options": [
-            "Albania", 
-            "China", 
+            "Vietnam", 
+            "Taiwan", 
+            "Nepal"
+        ],
+        "right_answer": "Vietnam"
+    },
+    {
+        "img": "Egypt.png",
+        "options": [
+            "Qatar", 
+            "Yemen", 
             "Egypt"
         ],
-        "right_answer": "China"
-    },
-    {
-        "img": "India.png",
-        "options": [
-            "Netherlands", 
-            "Argentina", 
-            "India"
-        ],
-        "right_answer": "India"
+        "right_answer": "Egypt"
     },
     {
         "img": "US.png",
@@ -88,5 +88,50 @@
             "United States"
         ],
         "right_answer": "United States"
+    },
+    {
+        "img": "Egypt.png",
+        "options": [
+            "Qatar", 
+            "Yemen", 
+            "Egypt"
+        ],
+        "right_answer": "Egypt"
+    },
+    {
+        "img": "Egypt.png",
+        "options": [
+            "Qatar", 
+            "Yemen", 
+            "Egypt"
+        ],
+        "right_answer": "Egypt"
+    },
+    {
+        "img": "Egypt.png",
+        "options": [
+            "Qatar", 
+            "Yemen", 
+            "Egypt"
+        ],
+        "right_answer": "Egypt"
+    },
+    {
+        "img": "Egypt.png",
+        "options": [
+            "Qatar", 
+            "Yemen", 
+            "Egypt"
+        ],
+        "right_answer": "Egypt"
+    },
+    {
+        "img": "Egypt.png",
+        "options": [
+            "Qatar", 
+            "Yemen", 
+            "Egypt"
+        ],
+        "right_answer": "Egypt"
     }
 ]
