@@ -65,12 +65,13 @@ h1 {
     font-size: 2.5rem;
     text-transform: capitalize;
     color: var(--violet);
-    padding: 2rem 0;
+    padding: 1rem 0;
     background: white;
-    border-radius: 5rem; /* Rounded edges */
+    border-radius: 10rem; /* Rounded edges */
     display: inline-block; /* Makes the background fit just around the text */
-    padding: 2rem;
     text-align: center;
+    margin-top: 5px;
+    padding: 2rem;
 }
 
 /* H3 Styling added */
