@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flag Quiz Game - Select Difficulty</title>
-    <link rel="stylesheet" href="/assets/css/index.css"> <!-- Link to my CSS file -->
+    <link rel="stylesheet" href="/assets/css/index.css"> <!-- Link to CSS -->
 </head>
 <body>
     <div class="container">
@@ -15,10 +15,15 @@
         </div>
         <div class="difficulty">
             <h2>Select Difficulty Level:</h2>
-            <a href="/easy_flags.html"><button class="difficulty-button" data-difficulty="easy">Easy</button></a>
-            <button class="difficulty-button" data-difficulty="hard">Hard</button>
+            <a href="/easy_flags.html" id="easyLevel"><button class="difficulty-button">Easy</button></a>
+            <a href="#" id="hardLevel"><button class="difficulty-button">Hard</button></a>
         </div>
     </div>
-    <script src="script.js"></script> <!-- Link to my JavaScript file -->
+
+    <!-- Mist overlay (hidden initially) -->
+    <div id="mistOverlay" class="mist"></div>
+
+    <script src="script.js"></script> <!-- Link to JS -->
 </body>
 </html>
+
