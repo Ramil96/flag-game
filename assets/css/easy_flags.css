@@ -62,7 +62,7 @@ a {
 }
 
 h1 {
-    font-family: 'Afacad Flux';
+    font-family: 'Baloo Paaji 2';
     text-align: center;
     font-size: 2.5rem;
     text-transform: capitalize;
@@ -79,7 +79,7 @@ h1 {
 /* H3 Styling added */
 
 h3 {
-    font-family: 'Afacad Flux';
+    font-family: 'Baloo Paaji 2';
     font-size: 2rem;
     padding: 2rem 0;
     text-transform: capitalize;
@@ -134,7 +134,7 @@ h3 {
 }
 
 .box .count {
-    font-family: 'Afacad Flux';
+    font-family: 'Baloo Paaji 2';
     font-size: 2rem;
     font-weight: 700;
     color: var(--violet);
