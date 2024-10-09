@@ -138,7 +138,7 @@ btnNewGame.addEventListener('click', () => {
     window.location.reload();
 });
 
-let timeLeft = 20; // Set the time limit (in seconds)
+let timeLeft = 30; // Set the time limit (in seconds)
 let timerInterval = setInterval(updateTimer, 1000); // Start the timer when the game begins
 
 function updateTimer() {
@@ -169,7 +169,7 @@ function updateTimer() {
 // Function to reset the timer on correct answers
 function resetTimer() {
     clearInterval(timerInterval); // Clear the previous timer
-    timeLeft = 20; // Reset time limit to 20 seconds
+    timeLeft = 31; // Reset time limit to 20 seconds
     timerInterval = setInterval(updateTimer, 1000); // Start a new timer
 }
 
