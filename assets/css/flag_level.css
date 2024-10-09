@@ -46,6 +46,18 @@ body::before {
     z-index: -1;
 }
 
+.timer {
+    font-family: 'Baloo Paaji 2';
+    font-size: 2rem;
+    color: var(--violet);
+    padding: 1rem;
+    background: white;
+    border-radius: 5rem;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
 ul {
     list-style: none;
 }
