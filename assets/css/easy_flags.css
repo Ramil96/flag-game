@@ -15,7 +15,6 @@
 :root {
     --white: #ffffff;
     --violet: #673ab7; 
-
 }
 
 /* Style for the html */
@@ -241,12 +240,23 @@ h3 {
     color: var(--white);
 }
 
+/* Ensure success and wrong classes take priority */
 .flags .flag-options ul li.success {
-    background-color: #1eb53a;
+    background-color: #1eb53a !important; /* Green for correct */
+    color: var(--white);
 }
 
 .flags .flag-options ul li.wrong {
-    background-color: red;
+    background-color: red !important; /* Red for wrong */
+    color: var(--white);
+}
+
+/* Modify the hover effect to not override success or wrong styles */
+@media (min-width: 991px) {
+    .flags .flag-options ul li:hover:not(.success):not(.wrong) {
+        background-color: var(--violet);
+        color: var(--white);
+    }
 }
 
 @media(min-width: 375px){
@@ -261,21 +271,11 @@ h3 {
     width: 30rem;
     }
 
-    .flags .flag-options ul li {
-    }
 }
 
 @media(min-width: 768px) {
     h1 {
         font-size: 6rem;
-    }
-}
-/* Animation to flag options */
-
-@media (min-width: 991px) {
-    .flags .flag-options ul li:hover {
-        background-color: var(--violet);
-        color: var(--white);
     }
 }
 
