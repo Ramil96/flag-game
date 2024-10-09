@@ -14,6 +14,9 @@ let currentIndex = 0;
 let rightAnswer = 0;
 let wrongAnswer = 0; // Added a variable to track incorrect answers
 
+// Add a flag to track if results have been shown
+let resultsShown = false;
+
 // Utility function to shuffle an array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -114,22 +117,20 @@ function checkAnswer(correctAnswer, selectedLi) {
         selectedLi.classList.add('success'); // Correct answer
         rightAnswer++; // Increment right answers count
         score.innerHTML = rightAnswer; // Update score display
+
+        // Reset the timer because the answer is correct
+        resetTimer(); 
     } else {
         selectedLi.classList.add('wrong'); // Incorrect answer
         wrongAnswer++; // Increment wrong answers count
+        // Do NOT reset the timer when the answer is wrong
     }
-}
 
-// Function to show the results (correct and incorrect answers)
-function showResults(totalQuestions) {
-    // Hide the flag image and options
-    flagOptions.innerHTML = '';
-    flagImgDiv.innerHTML = '';
-
-    // Display the score result section
-    scoreDiv.style.display = 'block'; // Show the score div
-    correctAns.innerHTML = rightAnswer; // Display the correct answers count
-    incorrectAns.innerHTML = wrongAnswer; // Display the incorrect answers count
+    // Check if all questions are answered
+    if (currentIndex >= 15) { // Assuming total questions are 15
+        clearInterval(timerInterval); // Stop the timer when all questions are answered
+        showResults(15); // Show the results screen
+    }
 }
 
 // New game logic (optional for reset)
@@ -173,31 +174,13 @@ function resetTimer() {
     timerInterval = setInterval(updateTimer, 1000); // Start a new timer
 }
 
-// Modified function to check if the answer is correct or not
-function checkAnswer(correctAnswer, selectedLi) {
-    let chosenAnswer = selectedLi.dataset.answer;
-    if (correctAnswer === chosenAnswer) {
-        selectedLi.classList.add('success'); // Correct answer
-        rightAnswer++; // Increment right answers count
-        score.innerHTML = rightAnswer; // Update score display
-
-        // Reset the timer because the answer is correct
-        resetTimer(); 
-    } else {
-        selectedLi.classList.add('wrong'); // Incorrect answer
-        wrongAnswer++; // Increment wrong answers count
-        // Do NOT reset the timer when the answer is wrong
-    }
-
-    // Check if all questions are answered
-    if (currentIndex >= totalQuestions) {
-        clearInterval(timerInterval); // Stop the timer when all questions are answered
-        showResults(totalQuestions); // Show the results screen
-    }
-}
-
 // Function to show the results when the user completes all questions
 function showResults(totalQuestions) {
+    // Check if results have already been shown
+    if (resultsShown) return; // If yes, exit the function early
+
+    resultsShown = true; // Set the flag to true to indicate results are being shown
+
     // Hide the flag image and options
     flagOptions.innerHTML = '';
     flagImgDiv.innerHTML = '';
@@ -209,6 +192,42 @@ function showResults(totalQuestions) {
     scoreDiv.style.display = 'block'; // Show the score div
     correctAns.innerHTML = rightAnswer; // Display the correct answers count
     incorrectAns.innerHTML = wrongAnswer; // Display the incorrect answers count
+
+    // Determine the user level based on correct answers
+    let userLevel = '';
+    let message = '';
+
+    if (rightAnswer === totalQuestions) {
+        userLevel = "James Cook";
+        message = "Congratulations! You are a master of geography!";
+    } else if (rightAnswer > 10) {
+        userLevel = "Ferdinand Magellan";
+        message = "Great job! You're quite the explorer!";
+    } else if (rightAnswer > 5) {
+        userLevel = "Explorer";
+        message = "Good effort! Keep exploring!";
+    } else {
+        userLevel = "Lost Wanderer";
+        message = "Don't worry, every explorer has to start somewhere!";
+    }
+
+    // Display the user level and message
+    const levelMessageDiv = document.createElement('div');
+    levelMessageDiv.classList.add('level-message');
+    levelMessageDiv.innerHTML = `
+        <h3>Your Level: ${userLevel}</h3>
+        <p>${message}</p>
+    `;
+
+    // Style the level message dynamically
+    levelMessageDiv.style.textAlign = 'center'; // Center text
+    levelMessageDiv.style.fontSize = '1.5rem'; // Font size
+    levelMessageDiv.style.marginTop = '20px'; // Margin for spacing
+    levelMessageDiv.style.color = 'darkgreen'; // Text color
+    levelMessageDiv.style.fontFamily = "'Baloo Paaji 2', sans-serif"; // Consistent font
+
+    // Add the level message to the score display section
+    scoreDiv.appendChild(levelMessageDiv);
 }
 
 // Function to handle what happens when time runs out
@@ -227,35 +246,24 @@ function showTimeoutScreen() {
     `;
 
     // Set styles for the timeout message dynamically
-    timeoutMessage.style.display = 'flex'; // Make it a flex container
-    timeoutMessage.style.flexDirection = 'column'; // Stack elements vertically
-    timeoutMessage.style.alignItems = 'center'; // Center items horizontally
-    timeoutMessage.style.justifyContent = 'center'; // Center items vertically
-    timeoutMessage.style.backgroundColor = 'rgba(255, 0, 0, 0.9)'; // Bright red background
-    timeoutMessage.style.color = 'white'; // White text
+    timeoutMessage.style.display = 'flex';
+    timeoutMessage.style.flexDirection = 'column';
+    timeoutMessage.style.alignItems = 'center';
+    timeoutMessage.style.textAlign = 'center';
+    timeoutMessage.style.marginTop = '20px';
     timeoutMessage.style.fontFamily = "'Baloo Paaji 2', sans-serif"; // Consistent font
-    timeoutMessage.style.fontSize = '2.5rem'; // Adjust font size for visibility
-    timeoutMessage.style.textAlign = 'center'; // Center text
-    timeoutMessage.style.padding = '30px'; // Padding for space inside the box
-    timeoutMessage.style.borderRadius = '20px'; // Rounded corners
-    timeoutMessage.style.margin = '50px auto'; // Center the message with margin
-    timeoutMessage.style.width = '80%'; // Set a width for better appearance
-    timeoutMessage.style.maxWidth = '600px'; // Maximum width for larger screens
-    timeoutMessage.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)'; // Shadow for depth
-    timeoutMessage.style.position = 'relative'; // Ensure it flows with other content
-    timeoutMessage.style.zIndex = '1000'; // Ensure it appears above other content
-    timeoutMessage.style.transition = 'all 0.3s ease'; // Smooth transition for display
+    timeoutMessage.style.color = 'darkred'; // Text color
 
-    // Add the timeout message to the container
-    document.querySelector('.container').appendChild(timeoutMessage);
+    // Append the timeout message to the score div
+    scoreDiv.innerHTML = ''; // Clear previous content
+    scoreDiv.appendChild(timeoutMessage);
 
-    // Add retry functionality
+    // Add event listeners for the buttons
     document.getElementById('retryGame').addEventListener('click', () => {
-        window.location.reload(); // Reload the game to start again
+        window.location.reload(); // Reload the page for a new game
     });
-
-    // Add functionality for the Home button
     document.getElementById('homeButton').addEventListener('click', () => {
-        window.location.href = '/'; // Redirect to the home page
+        // Implement the action for the home button (e.g., redirect to home page)
+        window.location.href = 'home.html'; // Adjust the path as needed
     });
 }

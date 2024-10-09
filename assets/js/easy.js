@@ -169,7 +169,7 @@ function updateTimer() {
 // Function to reset the timer on correct answers
 function resetTimer() {
     clearInterval(timerInterval); // Clear the previous timer
-    timeLeft = 31; // Reset time limit to 20 seconds
+    timeLeft = 31; 
     timerInterval = setInterval(updateTimer, 1000); // Start a new timer
 }
 
