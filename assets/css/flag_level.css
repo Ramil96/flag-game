@@ -68,6 +68,23 @@ body::before {
 }
 
 
+/* Time's Up message styling */
+.time-up-message {
+    display: none; /* Initially hidden */
+    background-color: rgba(255, 0, 0, 0.8); /* Red background for urgency */
+    color: var(--white); /* White text color */
+    font-family: 'Baloo Paaji 2', sans-serif; /* Use the same font */
+    font-size: 3rem; /* Large font size for visibility */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Add padding for space inside the box */
+    border-radius: 15px; /* Rounded corners */
+    margin: 20px auto; /* Center the message and add margin */
+    width: 60%; /* Set a width for better appearance */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    position: relative; /* Ensure it stays in flow with other content */
+    z-index: 999; /* Ensure it appears above other content */
+    transition: all 0.3s ease; /* Smooth transition for display */
+}
 
 
 ul {
@@ -314,4 +331,18 @@ h3 {
 
 .home-icon:hover {
     color: #673ab7;
+}
+
+/* Shake animation */
+@keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-10px, 0); }
+    50% { transform: translate(10px, 0); }
+    75% { transform: translate(-10px, 0); }
+    100% { transform: translate(0); }
+}
+
+.shake {
+    animation: shake 0.5s; /* Duration of shake */
+    animation-iteration-count: 3; /* Number of shakes */
 }

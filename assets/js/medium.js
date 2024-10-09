@@ -137,3 +137,125 @@ btnNewGame.addEventListener('click', () => {
     // Reload the page to start a new game (you can add a better reset logic)
     window.location.reload();
 });
+
+let timeLeft = 20; // Set the time limit (in seconds)
+let timerInterval = setInterval(updateTimer, 1000); // Start the timer when the game begins
+
+function updateTimer() {
+    let timeDisplay = document.getElementById('timeLeft');
+    
+    // Decrease the time left by 1
+    timeLeft--;
+    
+    // Update the time display
+    timeDisplay.innerHTML = timeLeft;
+
+    // If there are 5 seconds left, shake the screen
+    if (timeLeft <= 5) {
+        document.body.classList.add('shake'); // Add shake class
+        // Remove the shake class after the animation completes
+        setTimeout(() => {
+            document.body.classList.remove('shake');
+        }, 500); // Duration of the shake animation
+    }
+
+    // If the time reaches 0, stop the game and show the end screen
+    if (timeLeft <= 0) {
+        clearInterval(timerInterval); // Stop the timer
+        showTimeoutScreen(); // Trigger the timeout screen
+    }
+}
+
+// Function to reset the timer on correct answers
+function resetTimer() {
+    clearInterval(timerInterval); // Clear the previous timer
+    timeLeft = 20; // Reset time limit to 20 seconds
+    timerInterval = setInterval(updateTimer, 1000); // Start a new timer
+}
+
+// Modified function to check if the answer is correct or not
+function checkAnswer(correctAnswer, selectedLi) {
+    let chosenAnswer = selectedLi.dataset.answer;
+    if (correctAnswer === chosenAnswer) {
+        selectedLi.classList.add('success'); // Correct answer
+        rightAnswer++; // Increment right answers count
+        score.innerHTML = rightAnswer; // Update score display
+
+        // Reset the timer because the answer is correct
+        resetTimer(); 
+    } else {
+        selectedLi.classList.add('wrong'); // Incorrect answer
+        wrongAnswer++; // Increment wrong answers count
+        // Do NOT reset the timer when the answer is wrong
+    }
+
+    // Check if all questions are answered
+    if (currentIndex >= totalQuestions) {
+        clearInterval(timerInterval); // Stop the timer when all questions are answered
+        showResults(totalQuestions); // Show the results screen
+    }
+}
+
+// Function to show the results when the user completes all questions
+function showResults(totalQuestions) {
+    // Hide the flag image and options
+    flagOptions.innerHTML = '';
+    flagImgDiv.innerHTML = '';
+
+    // Stop the timer when the game finishes
+    clearInterval(timerInterval);
+
+    // Display the score result section
+    scoreDiv.style.display = 'block'; // Show the score div
+    correctAns.innerHTML = rightAnswer; // Display the correct answers count
+    incorrectAns.innerHTML = wrongAnswer; // Display the incorrect answers count
+}
+
+// Function to handle what happens when time runs out
+function showTimeoutScreen() {
+    // Hide the game content
+    document.querySelector('.flags').style.display = 'none';
+
+    // Show a message
+    let timeoutMessage = document.createElement('div');
+    timeoutMessage.classList.add('timeout-message');
+    timeoutMessage.innerHTML = `
+        <h2>Time's Up!</h2>
+        <p>Unfortunately, you ran out of time. Better luck next time!</p>
+        <button id="retryGame">Try Again</button>
+        <button id="homeButton">Home</button>
+    `;
+
+    // Set styles for the timeout message dynamically
+    timeoutMessage.style.display = 'flex'; // Make it a flex container
+    timeoutMessage.style.flexDirection = 'column'; // Stack elements vertically
+    timeoutMessage.style.alignItems = 'center'; // Center items horizontally
+    timeoutMessage.style.justifyContent = 'center'; // Center items vertically
+    timeoutMessage.style.backgroundColor = 'rgba(255, 0, 0, 0.9)'; // Bright red background
+    timeoutMessage.style.color = 'white'; // White text
+    timeoutMessage.style.fontFamily = "'Baloo Paaji 2', sans-serif"; // Consistent font
+    timeoutMessage.style.fontSize = '2.5rem'; // Adjust font size for visibility
+    timeoutMessage.style.textAlign = 'center'; // Center text
+    timeoutMessage.style.padding = '30px'; // Padding for space inside the box
+    timeoutMessage.style.borderRadius = '20px'; // Rounded corners
+    timeoutMessage.style.margin = '50px auto'; // Center the message with margin
+    timeoutMessage.style.width = '80%'; // Set a width for better appearance
+    timeoutMessage.style.maxWidth = '600px'; // Maximum width for larger screens
+    timeoutMessage.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)'; // Shadow for depth
+    timeoutMessage.style.position = 'relative'; // Ensure it flows with other content
+    timeoutMessage.style.zIndex = '1000'; // Ensure it appears above other content
+    timeoutMessage.style.transition = 'all 0.3s ease'; // Smooth transition for display
+
+    // Add the timeout message to the container
+    document.querySelector('.container').appendChild(timeoutMessage);
+
+    // Add retry functionality
+    document.getElementById('retryGame').addEventListener('click', () => {
+        window.location.reload(); // Reload the game to start again
+    });
+
+    // Add functionality for the Home button
+    document.getElementById('homeButton').addEventListener('click', () => {
+        window.location.href = '/'; // Redirect to the home page
+    });
+}
