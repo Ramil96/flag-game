@@ -49,8 +49,8 @@ body::before {
 /* Timer container styling */
 .timer {
     position: absolute;  /* Keeps it fixed in one place */
-    top: 20px;           /* Adjust to give space from the top */
-    right: 20px;         /* Moves it away from the right edge */
+    top: 80%;           /* Keeps the timer 20px from the top */
+    right: 44.5%;        /* Pushes the timer more to the left */
     background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
     padding: 10px 20px;  /* Adds space around the text */
     border-radius: 25px; /* Makes it rounded */
@@ -66,6 +66,7 @@ body::before {
     font-weight: bold;  /* Make the number bold */
     color: #ff5722;     /* Use an attention-grabbing color for the countdown */
 }
+
 
 
 
