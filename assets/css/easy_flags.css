@@ -57,7 +57,7 @@ a {
 /* Targeting the h1 element */
 
 .title-container {
-    text-align: center; /* Center the contents of the container */
+    text-align: center;
 }
 
 h1 {
@@ -140,9 +140,9 @@ h3 {
     text-transform: capitalize;
     padding: 2rem;
     background: white;
-    border-radius: 5rem; /* Rounded edges */
-    display: inline-block; /* Makes the background fit just around the text */
-    margin: 0; /* Remove margin to avoid extra spacing */
+    border-radius: 5rem; 
+    display: inline-block; 
+    margin: 0; 
 }
 
 /* Section for flag styling */
@@ -240,7 +240,6 @@ h3 {
     color: var(--white);
 }
 
-/* Ensure success and wrong classes take priority */
 .flags .flag-options ul li.success {
     background-color: #1eb53a !important; /* Green for correct */
     color: var(--white);
@@ -251,7 +250,6 @@ h3 {
     color: var(--white);
 }
 
-/* Modify the hover effect to not override success or wrong styles */
 @media (min-width: 991px) {
     .flags .flag-options ul li:hover:not(.success):not(.wrong) {
         background-color: var(--violet);
