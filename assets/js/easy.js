@@ -138,7 +138,7 @@ btnNewGame.addEventListener('click', () => {
     window.location.reload();
 });
 
-let timeLeft = 30; // Set the time limit (in seconds)
+let timeLeft = 20; // Set the time limit (in seconds)
 let timerInterval = setInterval(updateTimer, 1000); // Start the timer when the game begins
 
 function updateTimer() {
@@ -150,6 +150,15 @@ function updateTimer() {
     // Update the time display
     timeDisplay.innerHTML = timeLeft;
 
+    // If there are 5 seconds left, shake the screen
+    if (timeLeft <= 5) {
+        document.body.classList.add('shake'); // Add shake class
+        // Remove the shake class after the animation completes
+        setTimeout(() => {
+            document.body.classList.remove('shake');
+        }, 500); // Duration of the shake animation
+    }
+
     // If the time reaches 0, stop the game and show the end screen
     if (timeLeft <= 0) {
         clearInterval(timerInterval); // Stop the timer
@@ -160,7 +169,7 @@ function updateTimer() {
 // Function to reset the timer on correct answers
 function resetTimer() {
     clearInterval(timerInterval); // Clear the previous timer
-    timeLeft = 31; // Reset the time to 60 seconds (or whatever the time limit is)
+    timeLeft = 20; // Reset time limit to 20 seconds
     timerInterval = setInterval(updateTimer, 1000); // Start a new timer
 }
 
@@ -214,11 +223,39 @@ function showTimeoutScreen() {
         <h2>Time's Up!</h2>
         <p>Unfortunately, you ran out of time. Better luck next time!</p>
         <button id="retryGame">Try Again</button>
+        <button id="homeButton">Home</button>
     `;
+
+    // Set styles for the timeout message dynamically
+    timeoutMessage.style.display = 'flex'; // Make it a flex container
+    timeoutMessage.style.flexDirection = 'column'; // Stack elements vertically
+    timeoutMessage.style.alignItems = 'center'; // Center items horizontally
+    timeoutMessage.style.justifyContent = 'center'; // Center items vertically
+    timeoutMessage.style.backgroundColor = 'rgba(255, 0, 0, 0.9)'; // Bright red background
+    timeoutMessage.style.color = 'white'; // White text
+    timeoutMessage.style.fontFamily = "'Baloo Paaji 2', sans-serif"; // Consistent font
+    timeoutMessage.style.fontSize = '2.5rem'; // Adjust font size for visibility
+    timeoutMessage.style.textAlign = 'center'; // Center text
+    timeoutMessage.style.padding = '30px'; // Padding for space inside the box
+    timeoutMessage.style.borderRadius = '20px'; // Rounded corners
+    timeoutMessage.style.margin = '50px auto'; // Center the message with margin
+    timeoutMessage.style.width = '80%'; // Set a width for better appearance
+    timeoutMessage.style.maxWidth = '600px'; // Maximum width for larger screens
+    timeoutMessage.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)'; // Shadow for depth
+    timeoutMessage.style.position = 'relative'; // Ensure it flows with other content
+    timeoutMessage.style.zIndex = '1000'; // Ensure it appears above other content
+    timeoutMessage.style.transition = 'all 0.3s ease'; // Smooth transition for display
+
+    // Add the timeout message to the container
     document.querySelector('.container').appendChild(timeoutMessage);
 
     // Add retry functionality
     document.getElementById('retryGame').addEventListener('click', () => {
         window.location.reload(); // Reload the game to start again
+    });
+
+    // Add functionality for the Home button
+    document.getElementById('homeButton').addEventListener('click', () => {
+        window.location.href = '/'; // Redirect to the home page
     });
 }
