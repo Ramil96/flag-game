@@ -46,16 +46,27 @@ body::before {
     z-index: -1;
 }
 
+/* Timer container styling */
 .timer {
-    font-family: 'Baloo Paaji 2';
-    font-size: 2rem;
-    color: var(--violet);
-    padding: 1rem;
-    background: white;
-    border-radius: 5rem;
-    text-align: center;
-    margin-top: 20px;
+    position: absolute;  /* Keeps it fixed in one place */
+    top: 20px;           /* Adjust to give space from the top */
+    right: 20px;         /* Moves it away from the right edge */
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    padding: 10px 20px;  /* Adds space around the text */
+    border-radius: 25px; /* Makes it rounded */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Adds a shadow for depth */
+    font-family: 'Baloo Paaji 2', sans-serif; /* Use the fun font */
+    font-size: 1.8rem;    /* Adjust text size */
+    color: #673ab7;       /* Timer text color matching the violet theme */
+    z-index: 999;         /* Ensures it stays on top of other elements */
 }
+
+/* Styling for the timer countdown number */
+.timer span {
+    font-weight: bold;  /* Make the number bold */
+    color: #ff5722;     /* Use an attention-grabbing color for the countdown */
+}
+
 
 
 ul {
