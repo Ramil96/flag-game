@@ -6,18 +6,16 @@ let flagOptions = document.querySelector('.flag-options ul');
 let flagLis = document.querySelectorAll('.flag-options ul li');
 let score = document.querySelector('h3 span');
 let scoreDiv = document.querySelector('.score');
-let correctAns = document.querySelector('.score .Right span'); // Adjusted to target correctly
-let incorrectAns = document.querySelector('.score .incorrect span'); // Adjusted to target correctly
+let correctAns = document.querySelector('.score .Right span'); 
+let incorrectAns = document.querySelector('.score .incorrect span');
 let btnNewGame = document.querySelector('#newGame');
 
-// Add flag variables to check results and show
 let currentIndex = 0;
 let rightAnswer = 0;
 let wrongAnswer = 0; 
 
 let resultsShown = false;
 
-// function to shuffle an array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -32,43 +30,32 @@ function getQuestions() {
         if (this.readyState === 4 && this.status === 200) {
             let questions = JSON.parse(this.responseText);
             console.log(questions);
-            // Number of questions each new game
             let qCount = 15;
             questionNum(qCount);
-            // Random question each new game
             questions = questions.sort(() => Math.random() - Math.random()).slice(0, 15);
-            // Add questions data
             addQuestionData(questions[currentIndex], qCount);
 
-            // Add click event to each option
             flagLis.forEach((li) => {
                 li.addEventListener('click', () => {
-                    let correctAnswer = questions[currentIndex].right_answer; // Correct answer for the current question
-                    // Remove 'active' class from all options
+                    let correctAnswer = questions[currentIndex].right_answer; 
                     flagLis.forEach((item) => item.classList.remove('active'));
                     li.classList.add('active');
                     
-                    // Increase index for the next question
                     currentIndex++;
 
-                    // Check the answer after 500ms
                     setTimeout(() => {
-                        checkAnswer(correctAnswer, li); // Passing the clicked option
+                        checkAnswer(correctAnswer, li); 
                     }, 500);
 
                     setTimeout(() => {
-                        // Remove previous image source
                         flagImg.src = '';
-                        // Remove all classes (active, success, wrong)
                         li.classList.remove('active');
                         li.classList.remove('success');
                         li.classList.remove('wrong');
 
-                        // Add next question data
                         if (currentIndex < qCount) {
                             addQuestionData(questions[currentIndex], qCount);
                         } else {
-                            // Show results after the last question
                             showResults(qCount);
                         }
                     }, 1000);
@@ -82,29 +69,22 @@ function getQuestions() {
 
 getQuestions();
 
-// Function to display the total number of questions
 function questionNum(num) {
     countSpan.innerHTML = num;
 }
 
-// Function to add question data
 function addQuestionData(obj, count) {
     if (currentIndex < count) {
         flagImg.src = `assets/images/medium/${obj.img}`;
 
-        // Clone and shuffle options array
         let options = shuffleArray([...obj.options]);
 
-        // Create Options
         flagLis.forEach((li, i) => {
-            // Give each li a dynamic ID
             li.id = `answer_${i + 1}`;
 
-            // Assign the shuffled options to the li elements
-            li.dataset.answer = options[i]; // Dynamic assignment of shuffled option to each li
-            li.innerHTML = options[i];      // Display the shuffled option
+            li.dataset.answer = options[i]; 
+            li.innerHTML = options[i];  
 
-            // Clear previous classes
             li.classList.remove('active', 'success', 'wrong');
         });
     }
@@ -133,13 +113,12 @@ function checkAnswer(correctAnswer, selectedLi) {
     }
 }
 
-// New game logic (optional for reset)
+// New game logic
 btnNewGame.addEventListener('click', () => {
-    // Reload the page to start a new game 
     window.location.reload();
 });
 
-let timeLeft = 20; // Set the time limit 
+let timeLeft = 20; // time limit 
 let timerInterval = setInterval(updateTimer, 1000); // Starts the timer when the game begins
 
 function updateTimer() {
@@ -177,7 +156,7 @@ function resetTimer() {
 // Function to show the results when the user completes all questions
 function showResults(totalQuestions) {
     // Check if results have already been shown
-    if (resultsShown) return; // If yes, exit the function early
+    if (resultsShown) return; // If yes exit the function early
 
     resultsShown = true; // Set the flag to true to indicate results are being shown
 
@@ -188,10 +167,9 @@ function showResults(totalQuestions) {
     // Stop the timer when the game finishes
     clearInterval(timerInterval);
 
-    // Display the score result section
-    scoreDiv.style.display = 'block'; // Show the score div
-    correctAns.innerHTML = rightAnswer; // Display the correct answers count
-    incorrectAns.innerHTML = wrongAnswer; // Display the incorrect answers count
+    scoreDiv.style.display = 'block'; 
+    correctAns.innerHTML = rightAnswer;
+    incorrectAns.innerHTML = wrongAnswer; 
 
     // Determine the user level based on correct answers
     let userLevel = '';
@@ -200,10 +178,10 @@ function showResults(totalQuestions) {
     if (rightAnswer === totalQuestions) {
         userLevel = "James Cook";
         message = "Congratulations! You are a master of geography!";
-    } else if (rightAnswer > 10) {
+    } else if (rightAnswer > 12) {
         userLevel = "Ferdinand Magellan";
         message = "Great job! You're quite the explorer!";
-    } else if (rightAnswer > 5) {
+    } else if (rightAnswer > 8) {
         userLevel = "Explorer";
         message = "Good effort! Keep exploring!";
     } else {
