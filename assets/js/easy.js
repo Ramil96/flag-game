@@ -6,13 +6,13 @@ let flagOptions = document.querySelector('.flag-options ul');
 let flagLis = document.querySelectorAll('.flag-options ul li');
 let score = document.querySelector('h3 span');
 let scoreDiv = document.querySelector('.score');
-let correctAns = document.querySelector('.score .Right span'); // Adjusted to target correctly
-let incorrectAns = document.querySelector('.score .incorrect span'); // Adjusted to target correctly
+let correctAns = document.querySelector('.score .Right span'); 
+let incorrectAns = document.querySelector('.score .incorrect span'); 
 let btnNewGame = document.querySelector('#newGame');
 
 let currentIndex = 0;
 let rightAnswer = 0;
-let wrongAnswer = 0; // Added a variable to track incorrect answers
+let wrongAnswer = 0; 
 
 // Utility function to shuffle an array
 function shuffleArray(array) {
@@ -29,43 +29,32 @@ function getQuestions() {
         if (this.readyState === 4 && this.status === 200) {
             let questions = JSON.parse(this.responseText);
             console.log(questions);
-            // Number of questions each new game
             let qCount = 10;
             questionNum(qCount);
-            // Random question each new game
             questions = questions.sort(() => Math.random() - Math.random()).slice(0, 10);
-            // Add questions data
             addQuestionData(questions[currentIndex], qCount);
 
-            // Add click event to each option
             flagLis.forEach((li) => {
                 li.addEventListener('click', () => {
-                    let correctAnswer = questions[currentIndex].right_answer; // Correct answer for the current question
-                    // Remove 'active' class from all options
+                    let correctAnswer = questions[currentIndex].right_answer; 
                     flagLis.forEach((item) => item.classList.remove('active'));
                     li.classList.add('active');
                     
-                    // Increase index for the next question
                     currentIndex++;
 
-                    // Check the answer after 500ms
                     setTimeout(() => {
-                        checkAnswer(correctAnswer, li); // Passing the clicked option
+                        checkAnswer(correctAnswer, li);
                     }, 500);
 
                     setTimeout(() => {
-                        // Remove previous image source
                         flagImg.src = '';
-                        // Remove all classes (active, success, wrong)
                         li.classList.remove('active');
                         li.classList.remove('success');
                         li.classList.remove('wrong');
 
-                        // Add next question data
                         if (currentIndex < qCount) {
                             addQuestionData(questions[currentIndex], qCount);
                         } else {
-                            // Show results after the last question
                             showResults(qCount);
                         }
                     }, 1000);
@@ -79,62 +68,49 @@ function getQuestions() {
 
 getQuestions();
 
-// Function to display the total number of questions
 function questionNum(num) {
     countSpan.innerHTML = num;
 }
 
-// Function to add question data
 function addQuestionData(obj, count) {
     if (currentIndex < count) {
         flagImg.src = `assets/images/easy/${obj.img}`;
 
-        // Clone and shuffle options array
         let options = shuffleArray([...obj.options]);
 
-        // Create Options
         flagLis.forEach((li, i) => {
-            // Give each li a dynamic ID
             li.id = `answer_${i + 1}`;
 
-            // Assign the shuffled options to the li elements
-            li.dataset.answer = options[i]; // Dynamic assignment of shuffled option to each li
-            li.innerHTML = options[i];      // Display the shuffled option
+            li.dataset.answer = options[i]; 
+            li.innerHTML = options[i];      
 
-            // Clear previous classes
             li.classList.remove('active', 'success', 'wrong');
         });
     }
 }
 
-// Function to check if the chosen answer is correct or not
 function checkAnswer(correctAnswer, selectedLi) {
     let chosenAnswer = selectedLi.dataset.answer;
     if (correctAnswer === chosenAnswer) {
-        selectedLi.classList.add('success'); // Correct answer
-        rightAnswer++; // Increment right answers count
-        score.innerHTML = rightAnswer; // Update score display
+        selectedLi.classList.add('success'); 
+        rightAnswer++; 
+        score.innerHTML = rightAnswer; 
     } else {
-        selectedLi.classList.add('wrong'); // Incorrect answer
-        wrongAnswer++; // Increment wrong answers count
+        selectedLi.classList.add('wrong'); 
+        wrongAnswer++; 
     }
 }
 
-// Function to show the results (correct and incorrect answers)
 function showResults(totalQuestions) {
-    // Hide the flag image and options
     flagOptions.innerHTML = '';
     flagImgDiv.innerHTML = '';
 
-    // Display the score result section
-    scoreDiv.style.display = 'block'; // Show the score div
-    correctAns.innerHTML = rightAnswer; // Display the correct answers count
-    incorrectAns.innerHTML = wrongAnswer; // Display the incorrect answers count
+    scoreDiv.style.display = 'block';
+    correctAns.innerHTML = rightAnswer;
+    incorrectAns.innerHTML = wrongAnswer;
 }
 
-// New game logic (optional for reset)
 btnNewGame.addEventListener('click', () => {
-    // Reload the page to start a new game (you can add a better reset logic)
     window.location.reload();
 });
 
@@ -150,7 +126,7 @@ function updateTimer() {
     // Update the time display
     timeDisplay.innerHTML = timeLeft;
 
-    // If there are 5 seconds left, shake the screen
+    // Shakes the screen if there are 5 seconds left
     if (timeLeft <= 5) {
         document.body.classList.add('shake'); // Add shake class
         // Remove the shake class after the animation completes
@@ -198,14 +174,12 @@ function checkAnswer(correctAnswer, selectedLi) {
 
 // Function to show the results when the user completes all questions
 function showResults(totalQuestions) {
-    // Hide the flag image and options
     flagOptions.innerHTML = '';
     flagImgDiv.innerHTML = '';
 
     // Stop the timer when the game finishes
     clearInterval(timerInterval);
 
-    // Display the score result section
     scoreDiv.style.display = 'block'; // Show the score div
     correctAns.innerHTML = rightAnswer; // Display the correct answers count
     incorrectAns.innerHTML = wrongAnswer; // Display the incorrect answers count
@@ -226,36 +200,33 @@ function showTimeoutScreen() {
         <button id="homeButton">Home</button>
     `;
 
-    // Set styles for the timeout message dynamically
-    timeoutMessage.style.display = 'flex'; // Make it a flex container
-    timeoutMessage.style.flexDirection = 'column'; // Stack elements vertically
-    timeoutMessage.style.alignItems = 'center'; // Center items horizontally
-    timeoutMessage.style.justifyContent = 'center'; // Center items vertically
-    timeoutMessage.style.backgroundColor = 'rgba(255, 0, 0, 0.9)'; // Bright red background
-    timeoutMessage.style.color = 'white'; // White text
-    timeoutMessage.style.fontFamily = "'Baloo Paaji 2', sans-serif"; // Consistent font
-    timeoutMessage.style.fontSize = '2.5rem'; // Adjust font size for visibility
-    timeoutMessage.style.textAlign = 'center'; // Center text
-    timeoutMessage.style.padding = '30px'; // Padding for space inside the box
-    timeoutMessage.style.borderRadius = '20px'; // Rounded corners
-    timeoutMessage.style.margin = '50px auto'; // Center the message with margin
-    timeoutMessage.style.width = '80%'; // Set a width for better appearance
-    timeoutMessage.style.maxWidth = '600px'; // Maximum width for larger screens
-    timeoutMessage.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)'; // Shadow for depth
-    timeoutMessage.style.position = 'relative'; // Ensure it flows with other content
-    timeoutMessage.style.zIndex = '1000'; // Ensure it appears above other content
-    timeoutMessage.style.transition = 'all 0.3s ease'; // Smooth transition for display
+    // styles for the timeout message 
+    timeoutMessage.style.display = 'flex'; 
+    timeoutMessage.style.flexDirection = 'column'; 
+    timeoutMessage.style.alignItems = 'center'; 
+    timeoutMessage.style.justifyContent = 'center'; 
+    timeoutMessage.style.backgroundColor = 'rgba(255, 0, 0, 0.9)'; 
+    timeoutMessage.style.color = 'white'; 
+    timeoutMessage.style.fontFamily = "'Baloo Paaji 2', sans-serif"; 
+    timeoutMessage.style.fontSize = '2.5rem'; 
+    timeoutMessage.style.textAlign = 'center'; 
+    timeoutMessage.style.padding = '30px'; 
+    timeoutMessage.style.borderRadius = '20px'; 
+    timeoutMessage.style.margin = '50px auto'; 
+    timeoutMessage.style.width = '80%'; 
+    timeoutMessage.style.maxWidth = '600px'; 
+    timeoutMessage.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.5)'; 
+    timeoutMessage.style.position = 'relative'; 
+    timeoutMessage.style.zIndex = '1000'; 
+    timeoutMessage.style.transition = 'all 0.3s ease'; 
 
-    // Add the timeout message to the container
     document.querySelector('.container').appendChild(timeoutMessage);
 
-    // Add retry functionality
     document.getElementById('retryGame').addEventListener('click', () => {
-        window.location.reload(); // Reload the game to start again
+        window.location.reload(); 
     });
 
-    // Add functionality for the Home button
     document.getElementById('homeButton').addEventListener('click', () => {
-        window.location.href = '/'; // Redirect to the home page
+        window.location.href = '/'; 
     });
 }

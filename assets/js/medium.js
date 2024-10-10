@@ -10,14 +10,14 @@ let correctAns = document.querySelector('.score .Right span'); // Adjusted to ta
 let incorrectAns = document.querySelector('.score .incorrect span'); // Adjusted to target correctly
 let btnNewGame = document.querySelector('#newGame');
 
+// Add flag variables to check results and show
 let currentIndex = 0;
 let rightAnswer = 0;
-let wrongAnswer = 0; // Added a variable to track incorrect answers
+let wrongAnswer = 0; 
 
-// Add a flag to track if results have been shown
 let resultsShown = false;
 
-// Utility function to shuffle an array
+// function to shuffle an array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -135,12 +135,12 @@ function checkAnswer(correctAnswer, selectedLi) {
 
 // New game logic (optional for reset)
 btnNewGame.addEventListener('click', () => {
-    // Reload the page to start a new game (you can add a better reset logic)
+    // Reload the page to start a new game 
     window.location.reload();
 });
 
-let timeLeft = 20; // Set the time limit (in seconds)
-let timerInterval = setInterval(updateTimer, 1000); // Start the timer when the game begins
+let timeLeft = 20; // Set the time limit 
+let timerInterval = setInterval(updateTimer, 1000); // Starts the timer when the game begins
 
 function updateTimer() {
     let timeDisplay = document.getElementById('timeLeft');
@@ -154,10 +154,10 @@ function updateTimer() {
     // If there are 5 seconds left, shake the screen
     if (timeLeft <= 5) {
         document.body.classList.add('shake'); // Add shake class
-        // Remove the shake class after the animation completes
+        // Remove the shake class after animation complete
         setTimeout(() => {
             document.body.classList.remove('shake');
-        }, 500); // Duration of the shake animation
+        }, 500);
     }
 
     // If the time reaches 0, stop the game and show the end screen
@@ -263,7 +263,7 @@ function showTimeoutScreen() {
         window.location.reload(); // Reload the page for a new game
     });
     document.getElementById('homeButton').addEventListener('click', () => {
-        // Implement the action for the home button (e.g., redirect to home page)
+        // Implement the action for the home button
         window.location.href = 'home.html'; // Adjust the path as needed
     });
 }
