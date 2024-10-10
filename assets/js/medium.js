@@ -29,7 +29,6 @@ function getQuestions() {
     myRequest.onreadystatechange = function () {
         if (this.readyState === 4 && this.status === 200) {
             let questions = JSON.parse(this.responseText);
-            console.log(questions);
             let qCount = 15;
             questionNum(qCount);
             questions = questions.sort(() => Math.random() - Math.random()).slice(0, 15);
@@ -90,26 +89,22 @@ function addQuestionData(obj, count) {
     }
 }
 
-// Function to check if the chosen answer is correct or not
+// Check if the chosen answer is correct or not
 function checkAnswer(correctAnswer, selectedLi) {
     let chosenAnswer = selectedLi.dataset.answer;
     if (correctAnswer === chosenAnswer) {
-        selectedLi.classList.add('success'); // Correct answer
-        rightAnswer++; // Increment right answers count
-        score.innerHTML = rightAnswer; // Update score display
-
-        // Reset the timer because the answer is correct
+        selectedLi.classList.add('success'); 
+        rightAnswer++; 
+        score.innerHTML = rightAnswer; 
         resetTimer(); 
     } else {
-        selectedLi.classList.add('wrong'); // Incorrect answer
-        wrongAnswer++; // Increment wrong answers count
-        // Do NOT reset the timer when the answer is wrong
+        selectedLi.classList.add('wrong'); 
+        wrongAnswer++; 
     }
 
-    // Check if all questions are answered
-    if (currentIndex >= 15) { // Assuming total questions are 15
-        clearInterval(timerInterval); // Stop the timer when all questions are answered
-        showResults(15); // Show the results screen
+    if (currentIndex >= 15) { 
+        clearInterval(timerInterval); 
+        showResults(15); 
     }
 }
 
@@ -118,78 +113,73 @@ btnNewGame.addEventListener('click', () => {
     window.location.reload();
 });
 
-let timeLeft = 20; // time limit 
-let timerInterval = setInterval(updateTimer, 1000); // Starts the timer when the game begins
+let timeLeft = 20; 
+let timerInterval = setInterval(updateTimer, 1000); 
 
 function updateTimer() {
     let timeDisplay = document.getElementById('timeLeft');
-    
-    // Decrease the time left by 1
     timeLeft--;
-    
-    // Update the time display
     timeDisplay.innerHTML = timeLeft;
 
-    // If there are 5 seconds left, shake the screen
     if (timeLeft <= 5) {
-        document.body.classList.add('shake'); // Add shake class
-        // Remove the shake class after animation complete
+        document.body.classList.add('shake'); 
         setTimeout(() => {
             document.body.classList.remove('shake');
         }, 500);
     }
 
-    // If the time reaches 0, stop the game and show the end screen
     if (timeLeft <= 0) {
-        clearInterval(timerInterval); // Stop the timer
-        showTimeoutScreen(); // Trigger the timeout screen
+        clearInterval(timerInterval); 
+        showTimeoutScreen(); 
     }
 }
 
-// Function to reset the timer on correct answers
+// Reset timer on correct answers
 function resetTimer() {
-    clearInterval(timerInterval); // Clear the previous timer
-    timeLeft = 20; // Reset time limit to 20 seconds
-    timerInterval = setInterval(updateTimer, 1000); // Start a new timer
+    clearInterval(timerInterval); 
+    timeLeft = 20; 
+    timerInterval = setInterval(updateTimer, 1000); 
 }
 
-// Function to show the results when the user completes all questions
+// Show the results based on the score
 function showResults(totalQuestions) {
-    // Check if results have already been shown
-    if (resultsShown) return; // If yes exit the function early
+    if (resultsShown) return; 
+    resultsShown = true; 
 
-    resultsShown = true; // Set the flag to true to indicate results are being shown
-
-    // Hide the flag image and options
     flagOptions.innerHTML = '';
     flagImgDiv.innerHTML = '';
 
-    // Stop the timer when the game finishes
+    clearInterval(timerInterval);
+
+    // Stop the timer when the game is finished
     clearInterval(timerInterval);
 
     scoreDiv.style.display = 'block'; 
     correctAns.innerHTML = rightAnswer;
     incorrectAns.innerHTML = wrongAnswer; 
 
-    // Determine the user level based on correct answers
     let userLevel = '';
     let message = '';
+    let imageUrl = ''; 
 
     if (rightAnswer === totalQuestions) {
         userLevel = "James Cook";
         message = "Congratulations! You are a master of geography!";
+        imageUrl = 'assets/images/jc.jpg'; 
     } else if (rightAnswer > 12) {
         userLevel = "Ferdinand Magellan";
         message = "Great job! You're quite the explorer!";
+        imageUrl = 'assets/images/fm.jpg'; 
     } else if (rightAnswer > 8) {
         userLevel = "Explorer";
         message = "Good effort! Keep exploring!";
+        imageUrl = ''; 
     } else {
         userLevel = "Lost Wanderer";
         message = "Don't worry, every explorer has to start somewhere!";
+        imageUrl = ''; 
     }
 
-    // Display the user level and message
     const levelMessageDiv = document.createElement('div');
     levelMessageDiv.classList.add('level-message');
     levelMessageDiv.innerHTML = `
@@ -197,23 +187,39 @@ function showResults(totalQuestions) {
         <p>${message}</p>
     `;
 
-    // Style the level message dynamically
-    levelMessageDiv.style.textAlign = 'center'; // Center text
-    levelMessageDiv.style.fontSize = '1.5rem'; // Font size
-    levelMessageDiv.style.marginTop = '20px'; // Margin for spacing
-    levelMessageDiv.style.color = 'darkgreen'; // Text color
-    levelMessageDiv.style.fontFamily = "'Baloo Paaji 2', sans-serif"; // Consistent font
+    levelMessageDiv.style.textAlign = 'center'; 
+    levelMessageDiv.style.fontSize = '2rem';  
+    levelMessageDiv.style.marginTop = '20px'; 
+    levelMessageDiv.style.color = 'darkgreen'; 
+    levelMessageDiv.style.fontFamily = "'Baloo Paaji 2', sans-serif"; 
 
-    // Add the level message to the score display section
     scoreDiv.appendChild(levelMessageDiv);
+
+    if (imageUrl) {
+        const descriptionDiv = document.createElement('p');
+        descriptionDiv.innerHTML = userLevel === "James Cook" 
+            ? "James Cook was a British explorer, navigator, and cartographer who mapped the Pacific." 
+            : "Ferdinand Magellan was a Portuguese explorer who led the first circumnavigation of the Earth.";
+        descriptionDiv.style.textAlign = 'center';
+        descriptionDiv.style.color = 'darkblue';
+        descriptionDiv.style.fontSize = '1.5rem';  
+        descriptionDiv.style.marginTop = '10px';
+
+        const explorerImage = document.createElement('img');
+        explorerImage.src = imageUrl;
+        explorerImage.alt = userLevel;
+        explorerImage.style.maxWidth = '300px';  
+        explorerImage.style.marginTop = '10px'; 
+        explorerImage.style.borderRadius = '8px'; 
+
+        scoreDiv.appendChild(descriptionDiv); 
+        scoreDiv.appendChild(explorerImage); 
+    }
 }
 
-// Function to handle what happens when time runs out
 function showTimeoutScreen() {
-    // Hide the game content
     document.querySelector('.flags').style.display = 'none';
 
-    // Show a message
     let timeoutMessage = document.createElement('div');
     timeoutMessage.classList.add('timeout-message');
     timeoutMessage.innerHTML = `
@@ -223,25 +229,21 @@ function showTimeoutScreen() {
         <button id="homeButton">Home</button>
     `;
 
-    // Set styles for the timeout message dynamically
     timeoutMessage.style.display = 'flex';
     timeoutMessage.style.flexDirection = 'column';
     timeoutMessage.style.alignItems = 'center';
     timeoutMessage.style.textAlign = 'center';
     timeoutMessage.style.marginTop = '20px';
-    timeoutMessage.style.fontFamily = "'Baloo Paaji 2', sans-serif"; // Consistent font
-    timeoutMessage.style.color = 'darkred'; // Text color
+    timeoutMessage.style.fontFamily = "'Baloo Paaji 2', sans-serif";
+    timeoutMessage.style.color = 'darkred';
 
-    // Append the timeout message to the score div
-    scoreDiv.innerHTML = ''; // Clear previous content
+    scoreDiv.innerHTML = ''; 
     scoreDiv.appendChild(timeoutMessage);
 
-    // Add event listeners for the buttons
     document.getElementById('retryGame').addEventListener('click', () => {
-        window.location.reload(); // Reload the page for a new game
+        window.location.reload(); 
     });
     document.getElementById('homeButton').addEventListener('click', () => {
-        // Implement the action for the home button
-        window.location.href = 'home.html'; // Adjust the path as needed
+        window.location.href = 'index.html'; 
     });
 }

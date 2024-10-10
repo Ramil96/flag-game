@@ -48,42 +48,42 @@ body::before {
 
 /* Timer container styling */
 .timer {
-    position: absolute;  /* Keeps it fixed in one place */
-    top: 80%;           /* Keeps the timer 20px from the top */
-    right: 44.5%;        /* Pushes the timer more to the left */
-    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
-    padding: 10px 20px;  /* Adds space around the text */
-    border-radius: 25px; /* Makes it rounded */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Adds a shadow for depth */
-    font-family: 'Baloo Paaji 2', sans-serif; /* Use the fun font */
-    font-size: 1.8rem;    /* Adjust text size */
-    color: #673ab7;       /* Timer text color matching the violet theme */
-    z-index: 999;         /* Ensures it stays on top of other elements */
+    position: absolute;  
+    top: 80%;           
+    right: 44.5%;        
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 10px 20px;  
+    border-radius: 25px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+    font-family: 'Baloo Paaji 2', sans-serif; 
+    font-size: 1.8rem;    
+    color: #673ab7;       
+    z-index: 999;         
 }
 
 /* Styling for the timer countdown number */
 .timer span {
-    font-weight: bold;  /* Make the number bold */
-    color: #ff5722;     /* Use an attention-grabbing color for the countdown */
+    font-weight: bold;  
+    color: #ff5722;     
 }
 
 
 /* Time's Up message styling */
 .time-up-message {
-    display: none; /* Initially hidden */
-    background-color: rgba(255, 0, 0, 0.8); /* Red background for urgency */
-    color: var(--white); /* White text color */
-    font-family: 'Baloo Paaji 2', sans-serif; /* Use the same font */
-    font-size: 3rem; /* Large font size for visibility */
-    text-align: center; /* Center the text */
-    padding: 20px; /* Add padding for space inside the box */
-    border-radius: 15px; /* Rounded corners */
-    margin: 20px auto; /* Center the message and add margin */
-    width: 60%; /* Set a width for better appearance */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-    position: relative; /* Ensure it stays in flow with other content */
-    z-index: 999; /* Ensure it appears above other content */
-    transition: all 0.3s ease; /* Smooth transition for display */
+    display: none; 
+    background-color: rgba(255, 0, 0, 0.8); 
+    color: var(--white); 
+    font-family: 'Baloo Paaji 2', sans-serif; 
+    font-size: 3rem; 
+    text-align: center; 
+    padding: 20px; 
+    border-radius: 15px; 
+    margin: 20px auto; 
+    width: 60%; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    position: relative; 
+    z-index: 999; 
+    transition: all 0.3s ease; 
 }
 
 
@@ -109,8 +109,8 @@ h1 {
     color: var(--violet);
     padding: 1rem 0;
     background: white;
-    border-radius: 10rem; /* Rounded edges */
-    display: inline-block; /* Makes the background fit just around the text */
+    border-radius: 10rem; 
+    display: inline-block;
     text-align: center;
     margin-top: 5px;
     padding: 2rem;
@@ -282,12 +282,12 @@ h3 {
 }
 
 .flags .flag-options ul li.success {
-    background-color: #1eb53a !important; /* Green for correct */
+    background-color: #1eb53a !important; 
     color: var(--white);
 }
 
 .flags .flag-options ul li.wrong {
-    background-color: red !important; /* Red for wrong */
+    background-color: red !important; 
     color: var(--white);
 }
 
@@ -343,6 +343,6 @@ h3 {
 }
 
 .shake {
-    animation: shake 0.5s; /* Duration of shake */
-    animation-iteration-count: 3; /* Number of shakes */
+    animation: shake 0.5s; 
+    animation-iteration-count: 3; 
 }
