@@ -79,8 +79,11 @@ To determine the best approach to this project, I began by identifying and under
 
 ### Wireframe
 
-![Home page wireframe](assets/images/wireframes/Wireframe%20index.PNG)
-> The design flow of this website is meant to showcase a minimal design showing necessary information which is in the header.
+![Index wireframe](assets/images/wireframeIndex.png)
+> The design flow of this website is meant to showcase a minimal design showing necessary information which is in main section center screen.
+
+![Home page wireframe](assets/images/wireframeGame.png)
+> The design flow of this website is meant to showcase a minimal design showing necessary information like the timer score flag and options.
 
 ## Surface Plane
 
