@@ -145,7 +145,7 @@ To determine the best approach to this project, I began by identifying and under
 #### Result: No Errors
 
 ### easy_flags.html
-![easy_flags.html validation with W3C testing](assets/images/w3ceasyFlags)
+![easy_flags.html validation with W3C testing](assets/images/w3ceasyFlags.png)
 #### Result: No Errors
 
 ## CSS Validation 
