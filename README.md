@@ -97,7 +97,7 @@ To determine the best approach to this project, I began by identifying and under
 ## Testing
 > Testing on this project was done manually by me by myself and some family members to determine the functionality of the site with both usability and responsiveness to make sure it is easily usable by a new user.
 
-#### Testing links
+#### Testing game
 
 | Test                                                         | Outcome |
 |--------------------------------------------------------------|---------|
