@@ -2,7 +2,7 @@
 ## A game built to test country knowledge
 ## - Ramil Jose Tyrone Tuazon
 
-![My amiresponsive picture](assets/images/amiresponsiveIndex)
+![My amiresponsive picture](assets/images/amiresponsiveIndex.png)
 
 ## [Live site](https://ramil96.github.io/flag-game/)
 
