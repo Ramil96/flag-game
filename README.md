@@ -2,11 +2,11 @@
 ## A game built to test country knowledge
 ## - Ramil Jose Tyrone Tuazon
 
-![My amiresponsive picture](assets/images/amiresponsive%20(dark).PNG)
+![My amiresponsive picture](assets/images/amiresponsiveIndex)
 
-## [Live site](https://ramil96.github.io/raptors-muay-thai/)
+## [Live site](https://ramil96.github.io/flag-game/)
 
-## [Repository](https://github.com/Ramil96/raptors-muay-thai)
+## [Repository](https://github.com/Ramil96)
 
 ## Table of contents
 
