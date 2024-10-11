@@ -136,25 +136,16 @@ To determine the best approach to this project, I began by identifying and under
 
 ## Google Lighthouse Testing 
 ### index.html
-![index.html lighthouse test](assets/images/testing/lh%20index.PNG)
-
-### about.html
-![about.html lighthouse test](assets/images/testing/lh%20about.PNG)
-
-### prices.html
-![prices.html lighthouse test](assets/images/testing/lh%20prices.PNG)
-
-### contact-us.html
-![contact-us.html lighthouse test](assets/images/testing/lh%20contact.PNG)
+![index.html lighthouse test](assets/images/lgIndex.webp)
 
 ## HTML Validation
 
 ### index.html
-![HTML Validation with W3C testing](assets/images/testing/w3%20test.PNG)
+![HTML Validation with W3C testing](assets/images/w3cChecker.webp)
 #### Result: No Errors
 
 ### about.html
-![about.html validation with W3C testing](assets/images/testing/about%20w3c.PNG)
+![easy_flags.html validation with W3C testing](assets/images/)
 #### Result: No Errors
 
 ### prices.html
