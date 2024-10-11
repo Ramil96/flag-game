@@ -136,7 +136,7 @@ To determine the best approach to this project, I began by identifying and under
 
 ## Google Lighthouse Testing 
 ### index.html
-![index.html lighthouse test](assets/images/lgIndex.webp)
+![index.html lighthouse test](assets/images/lhIndex.webp)
 
 ## HTML Validation
 
