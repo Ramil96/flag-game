@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
-/* Font chosen to fit the child friendly theme */
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400..800&display=swap');
-/* New font chosen to fit islander and child friendly theme */
-
-/* Adjustment of the main content */
 
 * {
     margin: 0;
@@ -16,8 +12,6 @@
     --white: #ffffff;
     --violet: #673ab7; 
 }
-
-/* Style for the html */
 
 html {
     font-family: "Baloo Paaji 2",'Play', sans-serif;
@@ -49,8 +43,9 @@ body::before {
 /* Timer container styling */
 .timer {
     position: absolute;  
-    top: 80%;           
-    right: 44.5%;        
+    top: 10%; /* Adjust to keep it away from overlapping elements */           
+    right: 50%; /* Horizontally center */
+    transform: translateX(50%); /* Center fix */
     background-color: rgba(255, 255, 255, 0.9); 
     padding: 10px 20px;  
     border-radius: 25px; 
@@ -58,7 +53,7 @@ body::before {
     font-family: 'Baloo Paaji 2', sans-serif; 
     font-size: 1.8rem;    
     color: #673ab7;       
-    z-index: 999;         
+    z-index: 999;  
 }
 
 /* Styling for the timer countdown number */
@@ -66,7 +61,6 @@ body::before {
     font-weight: bold;  
     color: #ff5722;     
 }
-
 
 /* Time's Up message styling */
 .time-up-message {
@@ -86,7 +80,6 @@ body::before {
     transition: all 0.3s ease; 
 }
 
-
 ul {
     list-style: none;
 }
@@ -95,12 +88,7 @@ a {
     text-decoration: none; 
 }
 
-/* Targeting the h1 element */
-
-.title-container {
-    text-align: center;
-}
-
+/* Header Styling */
 h1 {
     font-family: 'Baloo Paaji 2';
     text-align: center;
@@ -116,8 +104,6 @@ h1 {
     padding: 2rem;
 }
 
-/* H3 Styling added */
-
 h3 {
     font-family: 'Baloo Paaji 2';
     font-size: 2rem;
@@ -129,8 +115,7 @@ h3 {
     border-radius: 5rem;
 }
 
-/* Container being targeted */
-
+/* Container for responsiveness */
 .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -138,12 +123,12 @@ h3 {
     margin-right: auto;
 }
 
-@media(min-width: 576){
+@media(min-width: 576px){
     .container {
         width: 540px;
     }
 }
-@media(min-width: 768){
+@media(min-width: 768px){
     .container {
         width: 720px;
     }
@@ -164,8 +149,7 @@ h3 {
     }
 }
 
-/* Section for box content */
-
+/* Box content styling */
 .box {
     display: flex;
     align-items: center;
@@ -186,8 +170,7 @@ h3 {
     margin: 0; 
 }
 
-/* Section for flag styling */
-
+/* Flag styling */
 .flags {
     display: flex;
     align-items: center;
@@ -207,24 +190,7 @@ h3 {
     animation: zoom-in-zoom-out 3s ease-in infinite;
 }
 
-/* Keyframes added for animation */
-
-@keyframes zoom-in-zoom-out {
-    0%{
-        transform: scale(1, 1);
-    }
-
-    50%{
-        transform: scale(1.1, 1.1);
-    }
-
-    100%{
-        transform: scale(1, 1);
-    }
-}
-
-/* Flag styling for selections */
-
+/* Flag selection options */
 .flags .flag-options {
     margin-top: 2rem;
 }
@@ -250,8 +216,7 @@ h3 {
     transition: all .1s ease-in-out;
 }
 
-/* New game button styled */
-
+/* New game button styling */
 #newGame {
     border: none;
     background-color: var(--violet);
@@ -274,8 +239,6 @@ h3 {
     color: var(--violet);
 }
 
-/* Flags option style */
-
 .flags .flag-options ul li.active {
     background-color: var(--violet);
     color: var(--white);
@@ -291,6 +254,7 @@ h3 {
     color: var(--white);
 }
 
+/* Hover effect */
 @media (min-width: 991px) {
     .flags .flag-options ul li:hover:not(.success):not(.wrong) {
         background-color: var(--violet);
@@ -298,6 +262,7 @@ h3 {
     }
 }
 
+/* Responsive Typography */
 @media(min-width: 375px){
     h1, 
     h3, 
@@ -345,4 +310,30 @@ h3 {
 .shake {
     animation: shake 0.5s; 
     animation-iteration-count: 3; 
+}
+
+@media(max-width: 768px) {
+    .timer {
+        top: 5%;
+        right: 50%;
+        transform: translateX(50%);
+        font-size: 1.6rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    .flags .flag-img img {
+        height: 15rem;
+    }
+
+    .flags .flag-options ul li {
+        font-size: 2rem;
+        width: 200px;
+    }
 }
