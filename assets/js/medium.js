@@ -244,6 +244,6 @@ function showTimeoutScreen() {
         window.location.reload(); 
     });
     document.getElementById('homeButton').addEventListener('click', () => {
-        window.location.href = 'index.html'; 
+        window.location.href = './index.html'; 
     });
 }
