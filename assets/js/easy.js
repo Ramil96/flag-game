@@ -14,7 +14,7 @@ let currentIndex = 0;
 let rightAnswer = 0;
 let wrongAnswer = 0; 
 
-// Utility function to shuffle an array
+// shuffle array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -114,8 +114,8 @@ btnNewGame.addEventListener('click', () => {
     window.location.reload();
 });
 
-let timeLeft = 30; // Set the time limit (in seconds)
-let timerInterval = setInterval(updateTimer, 1000); // Start the timer when the game begins
+let timeLeft = 30; 
+let timerInterval = setInterval(updateTimer, 1000); 
 
 function updateTimer() {
     let timeDisplay = document.getElementById('timeLeft');
@@ -128,17 +128,15 @@ function updateTimer() {
 
     // Shakes the screen if there are 5 seconds left
     if (timeLeft <= 5) {
-        document.body.classList.add('shake'); // Add shake class
-        // Remove the shake class after the animation completes
+        document.body.classList.add('shake');
         setTimeout(() => {
             document.body.classList.remove('shake');
-        }, 500); // Duration of the shake animation
+        }, 500);
     }
 
-    // If the time reaches 0, stop the game and show the end screen
     if (timeLeft <= 0) {
-        clearInterval(timerInterval); // Stop the timer
-        showTimeoutScreen(); // Trigger the timeout screen
+        clearInterval(timerInterval); 
+        showTimeoutScreen(); 
     }
 }
 
@@ -153,22 +151,20 @@ function resetTimer() {
 function checkAnswer(correctAnswer, selectedLi) {
     let chosenAnswer = selectedLi.dataset.answer;
     if (correctAnswer === chosenAnswer) {
-        selectedLi.classList.add('success'); // Correct answer
-        rightAnswer++; // Increment right answers count
-        score.innerHTML = rightAnswer; // Update score display
+        selectedLi.classList.add('success'); 
+        rightAnswer++; 
+        score.innerHTML = rightAnswer; 
 
-        // Reset the timer because the answer is correct
         resetTimer(); 
     } else {
         selectedLi.classList.add('wrong'); // Incorrect answer
-        wrongAnswer++; // Increment wrong answers count
-        // Do NOT reset the timer when the answer is wrong
+        wrongAnswer++; // Increment wrong answers
     }
 
     // Check if all questions are answered
     if (currentIndex >= totalQuestions) {
-        clearInterval(timerInterval); // Stop the timer when all questions are answered
-        showResults(totalQuestions); // Show the results screen
+        clearInterval(timerInterval); 
+        showResults(totalQuestions); 
     }
 }
 
@@ -177,7 +173,6 @@ function showResults(totalQuestions) {
     flagOptions.innerHTML = '';
     flagImgDiv.innerHTML = '';
 
-    // Stop the timer when the game finishes
     clearInterval(timerInterval);
 
     scoreDiv.style.display = 'block'; // Show the score div
@@ -185,12 +180,9 @@ function showResults(totalQuestions) {
     incorrectAns.innerHTML = wrongAnswer; // Display the incorrect answers count
 }
 
-// Function to handle what happens when time runs out
 function showTimeoutScreen() {
-    // Hide the game content
     document.querySelector('.flags').style.display = 'none';
 
-    // Show a message
     let timeoutMessage = document.createElement('div');
     timeoutMessage.classList.add('timeout-message');
     timeoutMessage.innerHTML = `
@@ -200,7 +192,6 @@ function showTimeoutScreen() {
         <button id="homeButton">Home</button>
     `;
 
-    // styles for the timeout message 
     timeoutMessage.style.display = 'flex'; 
     timeoutMessage.style.flexDirection = 'column'; 
     timeoutMessage.style.alignItems = 'center'; 
