@@ -43,9 +43,9 @@ body::before {
 /* Timer container styling */
 .timer {
     position: absolute;  
-    top: 10%; /* Adjust to keep it away from overlapping elements */           
-    right: 50%; /* Horizontally center */
-    transform: translateX(50%); /* Center fix */
+    top: 10%;        
+    right: 50%; 
+    transform: translateX(50%); 
     background-color: rgba(255, 255, 255, 0.9); 
     padding: 10px 20px;  
     border-radius: 25px; 
